@@ -31,16 +31,19 @@ public class Zoo {
 		
 
 	if(pet instanceof Mammifere) {
-		if(pet.getRegimeAlimentaire().equals(Animal.ALIMENT_CARNIVORE)){
+		
+		if(pet.getRegimeAlimentaire().equals(Animal.ALIMENT_CARNIVORE)){ // Si l’animal est un carnivore et 
+									// un mammifère alors il est ajouté à la zone carnivore
 			zones[ZONE_CARNIVORE].addPet(pet);
 		}
-		else if(pet.getRegimeAlimentaire().equals(Animal.ALIMENT_HERBIVORE)){
+		else if(pet.getRegimeAlimentaire().equals(Animal.ALIMENT_HERBIVORE)){ // Si l’animal est un herbivore et 
+										// un mammifère alors il est ajouté à la savane africaine
 			zones[ZONE_AFRICAINE].addPet(pet);
 		}		
-	}
+	} // Si l’animal est un reptile il est ajouté à la ferme aux reptiles 
 	else if(pet instanceof Reptile) {
 		zones[ZONE_REPTILE].addPet(pet);
-	}
+	} // Si c’est un poisson il est ajouté à l’aquarium
 	else if(pet instanceof Poisson) {
 		zones[ZONE_AQUARIUM].addPet(pet);
 	}
