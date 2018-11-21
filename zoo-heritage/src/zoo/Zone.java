@@ -4,29 +4,34 @@ import java.util.Arrays;
 public class Zone {
 	
 	private String nom = null; 
-	private Animal[] animaux = null;
+	private Animal[] pets = null;
 	
 	public Zone(String nom) {
-		super();
+
 		this.nom = nom;
-		this.animaux = null;	
+
 	}
 	
-	public void ajouteNouvelAnimal(Animal nouvelAnimal) {
+	public Zone(String nomZoo, Zone[] zones, String nom) {
+		super();
+		this.nom = nom;
 
-		
-		if (animaux == null) {
-			animaux = new Animal[1];
-			animaux[0] = nouvelAnimal;
-		} else {
-			Animal[] nouveauxAnimaux = new Animal[animaux.length-1];
-			int i = 0;
-			for (Animal animal : animaux) {
-				nouveauxAnimaux[i] = animal;
-				i++;
+	}
+	
+	public void addPet(Animal animal) {	
+		if( pets != null ) {
+			Animal [] petsProvisoire = new Animal [pets.length+1];
+			
+			for(int i = 0 ; i<pets.length; i++) {
+				petsProvisoire[i]=pets[i];
 			}
-			nouveauxAnimaux[animaux.length] = nouvelAnimal;
-			this.animaux = nouveauxAnimaux;
+			petsProvisoire[petsProvisoire.length-1] = animal;
+			
+			pets = petsProvisoire;
+			
+		} else {
+			pets = new Animal[1];
+			pets[0] = animal;
 		}
 	}
 		
@@ -40,14 +45,21 @@ public class Zone {
 		this.nom = nom;
 	}
 	
-	@Override 
-	public String toString() {
-		return "Zone " + nom + ", " + Arrays.toString(animaux) + "\n\r";
+	public Animal[] getAnimaux() {
+		return pets;
+	}
+
+
+	public void setAnimaux(Animal[] pets) {
+		this.pets = pets;
 	}
 	
-	public void setAnimaux(Animal[] animaux) {
-		this.animaux = animaux;
+	@Override 
+	public String toString() {
+		return "Zone " + nom + ", " + Arrays.toString(pets) + "\n\r";
 	}
+	
+
 
 
 

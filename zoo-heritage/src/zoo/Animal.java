@@ -2,13 +2,13 @@ package zoo;
 
 public abstract class Animal {
 	 
-	public String nom = null;
-	public String type = null; 
-	String regimeAlimentaire = null;
+	public String nom;
+	public String type; 
+	String regimeAlimentaire;
 	
-	public static final String ALIMENT_CARNIVORE = "Carnivore";
-	public static final String ALIMENT_HERBIVORE = "Herbivore";
-	public static final String ALIMENT_OMNIVORE = "Omnivore";
+	public static String ALIMENT_CARNIVORE = "Carnivore";
+	public static String ALIMENT_HERBIVORE = "Herbivore";
+	public static String ALIMENT_OMNIVORE = "Omnivore";
 	
 	public Animal(String nom, String type, String regimeAlimentaire) {
 		super();
@@ -48,7 +48,7 @@ public abstract class Animal {
 
 	@Override
 	public String toString() {
-		return nom + " est un animal de type=>" + type + ", et il est " + regimeAlimentaire ;
+		return nom + " sa race : " + type + ", son régime alimentaire : " + regimeAlimentaire ;
 	}
 
 	
